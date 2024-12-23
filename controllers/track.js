@@ -23,7 +23,7 @@ res.status(201).json(new_track)
 // get tracks
  exports.get_tracks= async (req, res) =>{
     try {
-        const tracks= await Track.find().populate('facilitators');q
+        const tracks= await Track.find().populate('facilitators');
         res.status(200).json(tracks)
     } catch(err){
         res.status(500).json(err)
