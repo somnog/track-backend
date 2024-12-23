@@ -3,17 +3,17 @@ const Track = require('../models/track');
 // save new track
  exports.create_track = async (req, res) => {
     try{
-        const { title,decription, start_date,end_date, close_date, requirements , fascilitators}= req.body
+        const { title,description, start_date,end_date, close_date, requirements , facilitators}= req.body
+        // console.log(req.body)
 const new_track =new Track({
      title,
-     decription,
+     description,
      start_date,
      end_date, 
      close_date, 
      requirements , 
-     fascilitators
+     facilitators
 })
-await new_track.save()
 res.status(201).json(new_track)
     } catch (err){
         res.status(500).json(err)
@@ -23,7 +23,7 @@ res.status(201).json(new_track)
 // get tracks
  exports.get_tracks= async (req, res) =>{
     try {
-        const tracks= await Track.find();
+        const tracks= await Track.find().populate('facilitators');q
         res.status(200).json(tracks)
     } catch(err){
         res.status(500).json(err)
