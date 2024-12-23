@@ -18,7 +18,7 @@ app.use("/", track_routes); // Truck-related routes
 app.use("/", facilitator_routes);
 app.use("/", request_routes);
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server Runing at http://localhost:${PORT} `);
