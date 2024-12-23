@@ -7,11 +7,13 @@ const track_schema= mongoose.Schema({
     end_date:{type:Date , default:null },
     close_date:{type:Date , default:null },
     requirements:[],
-    facilitators:[]
- 
+    // facilitators:[]
+     facilitators: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "facilitator",
+        },
+      ],
 })
 
 module.exports = mongoose.model('track',track_schema)
-
-
-
